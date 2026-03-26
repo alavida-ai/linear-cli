@@ -55,6 +55,7 @@ jobs:
       - name: Create and push tag
         if: steps.checks.outputs.tag_exists != 'true' && steps.checks.outputs.npm_exists != 'true'
         env:
+          GH_TOKEN: ${{ secrets.RELEASE_TRIGGER_TOKEN }}
           RELEASE_TRIGGER_TOKEN: ${{ secrets.RELEASE_TRIGGER_TOKEN }}
           VERSION: ${{ steps.version.outputs.value }}
         run: |
@@ -63,3 +64,4 @@ jobs:
           git remote set-url origin "https://x-access-token:${RELEASE_TRIGGER_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           git tag "v${VERSION}"
           git push origin "v${VERSION}"
+          gh workflow run release.yml --repo "${GITHUB_REPOSITORY}" --ref "v${VERSION}"
