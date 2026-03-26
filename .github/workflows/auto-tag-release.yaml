@@ -1,4 +1,4 @@
-name: Auto Tag Release
+name: Auto Release
 
 on:
   push:
@@ -48,20 +48,14 @@ jobs:
           RELEASE_TRIGGER_TOKEN: ${{ secrets.RELEASE_TRIGGER_TOKEN }}
         run: |
           if [ -z "$RELEASE_TRIGGER_TOKEN" ]; then
-            echo "RELEASE_TRIGGER_TOKEN secret is required to push release tags."
+            echo "RELEASE_TRIGGER_TOKEN secret is required to dispatch releases."
             exit 1
           fi
 
-      - name: Create and push tag
+      - name: Dispatch release workflow
         if: steps.checks.outputs.tag_exists != 'true' && steps.checks.outputs.npm_exists != 'true'
         env:
           GH_TOKEN: ${{ secrets.RELEASE_TRIGGER_TOKEN }}
-          RELEASE_TRIGGER_TOKEN: ${{ secrets.RELEASE_TRIGGER_TOKEN }}
           VERSION: ${{ steps.version.outputs.value }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin "https://x-access-token:${RELEASE_TRIGGER_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git tag "v${VERSION}"
-          git push origin "v${VERSION}"
-          gh workflow run release.yml --repo "${GITHUB_REPOSITORY}" --ref "v${VERSION}"
+          gh workflow run release.yml --repo "${GITHUB_REPOSITORY}" --ref main -f tag="v${VERSION}"
