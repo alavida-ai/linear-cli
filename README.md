@@ -4,6 +4,18 @@ a cli to list, start and create issues in the [linear](https://linear.app/) issu
 
 **works great with AI agents** — the CLI includes a [skill](#skills) that lets agents create issues, update status, and manage your Linear workflow alongside your code.
 
+## Alavida Fork
+
+This repository is Alavida's maintained fork of `schpet/linear-cli`.
+
+We keep the fork because we need to own:
+
+- the public package namespace and release pipeline
+- the Claude marketplace skill that ships with the CLI
+- Alavida-specific workflow helpers such as `linear pr-body`
+
+Upstream already provides most of the core Linear CLI surface. The fork exists so Alavida can publish, version, and extend the tool on its own release cadence without depending on upstream repo ownership.
+
 here's how it works:
 
 ```bash

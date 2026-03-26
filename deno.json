@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
   "name": "@alavida/linear-cli",
-  "version": "1.12.1",
+  "version": "1.12.2",
   "exports": "./src/main.ts",
   "license": "MIT",
   "tasks": {
@@ -63,6 +63,7 @@
     "exclude": [
       ".github/workflows/release.yml",
       ".github/build-setup.yml",
+      "docs/",
       "__generated__/",
       "src/__codegen__/"
     ],
