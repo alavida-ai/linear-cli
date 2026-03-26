@@ -5,7 +5,7 @@ members = ["dist:."]
 [package]
 name = "linear"
 description = "CLI tool for linear.app that uses git branch names and directory names to open issues and team pages"
-version = "1.12.2"
+version = "1.12.3"
 license = "MIT"
 repository = "https://github.com/alavida-ai/linear-cli"
 homepage = "https://github.com/alavida-ai/linear-cli"

@@ -1,8 +1,8 @@
 import { assertEquals, assertStringIncludes } from "@std/assert"
+import { fromFileUrl } from "@std/path"
 import { MockLinearServer } from "../utils/mock_linear_server.ts"
 
-const repoRoot =
-  "/Users/alexandergirardet/.superset/worktrees/Alavida/_external/linear-cli-ala493"
+const repoRoot = fromFileUrl(new URL("../../", import.meta.url))
 
 Deno.test("pr-body command help is available from the main CLI", async () => {
   const command = new Deno.Command("npx", {

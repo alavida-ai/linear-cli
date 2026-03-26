@@ -1,11 +1,9 @@
 # .github/workflows/publish.yml
 
-name: Publish
+name: Publish JSR
 
 on:
-  push:
-    tags:
-      - "v*"
+  workflow_dispatch:
 
 jobs:
   publish:

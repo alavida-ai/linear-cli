@@ -51,12 +51,6 @@ it aims to be a complement to the web and desktop apps that lets you stay on the
 
 ## install
 
-### deno via jsr
-
-```bash
-deno install -A --reload -f -g -n linear jsr:@alavida/linear-cli
-```
-
 ### npm / bun / pnpm
 
 install as a dev dependency to pin a version in your project:
@@ -91,6 +85,8 @@ git clone https://github.com/alavida-ai/linear-cli
 cd linear-cli
 deno task install
 ```
+
+JSR publishing is not enabled yet for this fork. Install from npm, GitHub Releases, or local source.
 
 ## setup
 
