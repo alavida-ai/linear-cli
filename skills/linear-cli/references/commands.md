@@ -16,6 +16,7 @@
 - [config](./config.md) - Interactively generate .linear.toml configuration
 - [schema](./schema.md) - Print the GraphQL schema to stdout
 - [api](./api.md) - Make a raw GraphQL API request
+- [pr-body](./pr-body.md) - Generate an Alavida PR body from Linear issues
 
 ## Quick Reference
 
